@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Serendip : Text Viewer</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="app.css">
+        <style>
+            a {
+                border: #000;
+                border-style: solid;
+                border-width: 1px;
+                padding: 8px 8px 8px 8px;
+                text-decoration: none;
+                border-radius: 2px;
+                margin-left: 10px;
+                color: aliceblue;
+            }
+            #navbar {
+                position: absolute;
+                margin-top: 18px;
+                right: 8%;
+                top: 0%;
+                z-index: 10;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <a  href="../index.html">Corpus Viewer</a>
+            <a style="background-color: cadetblue; cursor:default;">Text Viewer</a>
+            <a href="../rankViwer/RankViewer.html">Rank Viewer</a>
+            <a href="../compareView/compareView/index.html">Compare View</a>
+        </div>
+        <div class="myContainer">
+            <div id="spandiv">
+                <!-- <h4 id="mainlabel">Text Viewer</h4> -->
+                <nav class="navbar border-dark rounded navbar-expand-lg navbar-light bg-light shadow-sm">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Text-Viewer</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                    </div>
+                  </nav>
+            </div>
+            <div id="inner">
+                <div id="topiclist" class="flex-item bg-light subcontainer">
+                    <form class="border border-dark rounded p-2 mb-2 bg-light shadow-sm">
+                        <label for="wordbox">Tags : </label>
+                        <div id="topicdiv1" class="horizontal-div"></div>
+                        <div id="topicdiv2" class="horizontal-div"></div>
+                        <div id="topicdiv3" class="horizontal-div"></div>
+                        <div id="topicdiv4" class="horizontal-div"></div>
+                        <div id="topicdiv5" class="horizontal-div"></div>
+                    </form>
+                </div>
+                <div id="document" class="flex-item bg-light">
+                    <form class="border border-dark rounded p-2 mb-2 bg-light shadow-sm">
+                        <label for="wordbox">Text: </label>
+                        <div id="corpus">
+                            <div class="backdrop">
+                                <div class="highlights" id="overlaydiv">
+                                </div>
+                            </div>                
+                            <textarea resize = "none"  id="wordbox" oninput = handleInput() onscroll=handleScroll() rows="8"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div id="linechartconainer" class="flex-item bg-light">
+                    <form class="border border-dark rounded p-2 mb-2 bg-light shadow-sm">
+                        <label for="wordbox">Topic Overview : </label>
+                        <div id="linechart" class="bg-light"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 

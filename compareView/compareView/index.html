@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venn Diagram</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        #dropdowns {
+            text-align: center;
+            margin: 20px;
+            stroke-width: bold;
+            font-weight: bold;
+            margin-top: 5%;
+        }
+        select {
+            margin-right: 20px;
+        }
+        a {
+            border: #000;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+        #navbar {
+            position: absolute;
+            margin-top: 20px;
+            right: 2%;
+            top: 1%;
+        }
+        #vennDiagram {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        h1 {
+            position: absolute;
+            top: 0%;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Topic Overlap View</h1>
+    <div id="navbar">
+        <a href="../../index.html">Corpus Viewer</a>
+        <a href="../../textViewer/index.html">Text Viewer</a>
+        <a href="../../rankViwer/RankViewer.html">Rank Viewer</a>
+        <a style="background-color: cadetblue; cursor:default;">Compare View</a>
+    </div>
+    <div id="dropdowns">
+        <label for="dataset">Dataset:</label>
+        <select id="dataset"></select>
+
+        <label for="article1">Article 1:</label>
+        <select id="article1"></select>
+        
+        <label for="article2">Article 2:</label>
+        <select id="article2"></select>
+    </div>
+    
+    <svg id="vennDiagram" width="1200" height="600"></svg>
+    <div id="tooltip" style="position: absolute; visibility: hidden; padding: 8px; background-color: white; border: 1px solid #000; border-radius: 5px; pointer-events: none;"></div>
+    <script src="script.js"></script>
+</body>
+</html>

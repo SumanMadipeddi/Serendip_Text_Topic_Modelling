@@ -1,0 +1,169 @@
+.myContainer {
+    margin:auto;
+    border: 2px;
+    border-color: black;
+    width:1440px;
+    height: 1080px;
+    grid-template-areas: "overlap";
+}
+
+#spandiv {
+    width: 1440px;
+    background-color: #e0ffff;
+}
+
+#inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.container-fluid {
+  background-color: slategray;
+}
+
+.navbar-brand {
+  background-color: lightgray;
+}
+
+.flex-item {
+    /* background: bisque; */
+    padding: 5px;
+    height: 920px;
+    margin-top: 10px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+  }
+
+.flex-item:first-child,
+.flex-item:last-child {
+  flex-basis: 25%;
+  border: 1px solid black;
+}
+
+.flex-item:nth-child(2) {
+  flex-basis: 50%;
+  border: 1px solid black;
+}
+
+#corpus {
+  display: grid;
+}
+
+form {
+  height: 100%;
+  max-width: 100%; 
+  max-height: 100%;
+  margin: 0px !important;
+}
+
+.form-control {
+  margin: 0px !important;
+  border-radius: 0;
+  border: 0px;
+  padding: 0px;
+  color: #444;
+  background-color: transparent;
+  grid-area: overlap;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 16px;
+  /* max-height: 100%; */
+}
+
+.backdrop {
+  overflow: auto;
+  background-color: #fff;
+  grid-area: overlap;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  /* max-height: inherit; */
+  margin-top: 2px !important;
+  margin-left: 1px !important;
+  font-size: 16px;
+  height: 800px!important;
+  max-height: 800px!important
+}
+.highlights {
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: transparent;
+  height: 800px !important;
+  max-height: 800px !important;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+  /* padding-top: 20px; */
+}
+mark {
+  color: transparent;
+  /* background-color: #d4e9ab; */
+  border-radius: 3px;
+  padding: 0px !important;
+  /* width: 20px; */
+}
+
+textarea {
+  height: 800px!important;
+  max-height: 800px!important;
+  grid-area: overlap;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  background-color: transparent;
+  padding: 20px;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+::-webkit-scrollbar-button {
+  background: #ccc
+}
+::-webkit-scrollbar-track-piece {
+  background: #888
+}
+::-webkit-scrollbar-thumb {
+  background: #eee
+}
+
+label {
+  font-size: 20px;
+  margin: 0px !important;
+}
+
+.subcontainer {
+  flex-direction: column;
+}
+
+.horizontal-div {
+  width: auto;
+  margin-top: 3px;
+  font-size: 16px;
+  height: 60px;
+  border: 1px;
+  border-color: black;
+  background-color: lightgray;
+}
+
+.recttag {
+  float: left;
+  border-radius: 2px;
+  border-color: black;
+  border: 2px;
+}
+
+#linechart {
+  overflow: scroll;
+}
+
+#linechartconainer {
+  overflow: scroll;
+}

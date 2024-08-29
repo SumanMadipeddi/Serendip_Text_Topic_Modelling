@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Modeling Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .cell {
+            stroke: #000;
+            stroke-width: 0.5px;
+        }
+        body{
+            font-family:sans-serif;
+        }
+        .x-labels, .y-labels {
+            font-size: 12px;
+        }
+        #matrix-container {
+            display: block;
+            width: 1080px;
+            height: 90vh;
+            overflow-y: auto;
+            margin-top: 65px;
+            border: #000;
+            border: 2px solid #ccc; /* Optional: adds a light border */
+            box-shadow: inset 0px 4px 6px -3px rgba(0, 0, 0, 0.3), /* Top shadow */
+                inset 0px -4px 6px -3px rgba(0, 0, 0, 0.3); /* Bottom shadow */
+        }
+        h2{
+            position: absolute;
+            top: 47px;
+            margin-right: 50px;
+            padding-left: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: cadetblue;
+            width: 1030px;
+        }
+        h3{
+            position: absolute;
+            display: inline;
+            top: 48px;
+            right: 2%;
+            width: 550px;
+            padding-left: 2px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: cadetblue;
+            z-index: 10;
+        }
+        #matrix-options {
+            position: absolute;
+            top: 1%;
+            left: 5%;
+        }
+
+        #details {
+            position: absolute;
+            display: inline;
+            top: 65px;
+            right: 2%;
+            width: 550px;
+            height: 90vh;
+            overflow-y: auto;
+            border: #000;
+            border: 2px solid #ccc; /* Optional: adds a light border */
+            box-shadow: inset 0px 4px 6px -3px rgba(0, 0, 0, 0.3), /* Top shadow */
+                inset 0px -4px 6px -3px rgba(0, 0, 0, 0.3); /* Bottom shadow */
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #666;
+        }
+        .details-loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #666;
+        }
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none; /* Let mouse events pass through */
+            opacity: 0; /* Start hidden */
+        }
+        .highlight {
+            font-weight: bold;
+            fill: red; /* or any color that stands out */
+        }
+
+
+        .custom-select {
+            min-width: 350px;
+            position: relative;
+            float: right;
+            right: 10%;
+        }
+
+        select {
+            /*  other styles for aesthetics */
+            width: 100px;
+            font-size: 1.15rem;
+            padding: 0.675em 6em 0.675em 1em;
+            background-color: #fff;
+            border: 1px solid #caced1;
+            border-radius: 0.25rem;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .custom-select::before,
+        .custom-select::after {
+            --size: 0.3rem;
+            content: "";
+            position: absolute;
+            right: 1rem;
+            pointer-events: none;
+        }
+
+        .custom-select::before {
+            border-left: var(--size) solid transparent;
+            border-right: var(--size) solid transparent;
+            border-bottom: var(--size) solid black;
+            top: 40%;
+        }
+
+        .custom-select::after {
+            border-left: var(--size) solid transparent;
+            border-right: var(--size) solid transparent;
+            border-top: var(--size) solid black;
+            top: 55%;
+        }
+        label{
+            padding-top: 30px;
+            margin-left: 10px;
+        }
+        a {
+            border: #000;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+        #navbar {
+            position: absolute;
+            margin-top: 20px;
+            right: 2%;
+            top: 1%;
+        }
+        h1 {
+            position: absolute;
+            left: 40%;
+            top: 0%;
+        }
+    </style>
+</head>
+<body>
+    <h1>SERENDIP</h1>
+    <div id="navbar">
+        <a style="background-color: cadetblue; cursor:default;">Corpus Viewer</a>
+        <a href="textViewer/index.html">Text Viewer</a>
+        <a href="rankViwer/RankViewer.html">Rank Viewer</a>
+        <a href="compareView/compareView/index.html">Compare View</a>
+    </div>
+    <div id="tooltip" class="tooltip" style="opacity:0;"></div>
+    <select id="matrix-options" class="custom-select" onchange="renderMatrix()">
+        <option value="shake50_doc_topic_distribution">Shakesphere Work</option>
+        <option value="moviereview_doc_topic_distribution">Movie Reviews</option>
+    </select>
+    <div id="matrix-container">
+    <h2>Corpus Viewer</h2>
+        <div id="loading" class="loading">Loading...</div>
+        <svg id="matrix"></svg>
+    </div>
+    <h3>Topic Distribustion</h3>
+    <div id="details">
+        <div id="details-loading" class="details-loading">Loading...</div>
+        <svg id="word-distribution"></svg> <!-- Container for the bar chart -->
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

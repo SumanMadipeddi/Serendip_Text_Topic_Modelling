@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RankViewer</title>
+    <link rel="stylesheet" href="./css/rankViewer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <style>
+        a {
+            border: #000;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+        #navbar {
+            position: absolute;
+            margin-top: 15px;
+            right: 2%;
+            top: 0%;
+        }
+        #word-control {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="../index.html">Corpus Viewer</a>
+        <a href="../textViewer/index.html">Text Viewer</a>
+        <a style="background-color: cadetblue; cursor:default;">Rank Viewer</a>
+        <a href="../compareView/compareView/index.html">Compare View</a>
+    </div>
+    <div id="word-control">
+        <input type="text" name="word-adder" id="word-adder" placeholder="Enter words separated by space">
+        <select name="color-choice" id="color-choice" placeholder="Select a color">
+            <option value="" selected disabled>Select a color for the word/s</option>
+            <option value="deepskyblue">deepskyblue</option>
+            <option value="limegreen">limegreen</option>
+            <option value="deeppink">deeppink</option>
+            <option value="mediumslateblue">mediumslateblue</option>
+            <option value="crimson">crimson</option>
+            <option value="goldenrod">goldenrod</option>
+            <option value="coral">coral</option>
+            <option value="darkmagenta">darkmagenta</option>
+            <option value="olive">olive</option>
+        </select>
+        <button type="button" onclick="addHandler()">Add</button>
+        <select name="data-select" id="data-select">
+            <option value="moviereview">Movie review</option>
+            <option value="shake50">Shakespeare collection</option>
+        </select>
+    </div>
+    <div class="viz-container">
+        <div id="word-box" style="display: block;">
+            <h4>Selected words:</h4>
+            <div id="word-container">
+
+            </div>
+        </div>
+        <div id="topic-word-view">
+            <h4>Word Rank View</h4>
+
+        </div>
+        <div id="word-topic-view">
+
+        </div>
+    </div>
+    <script src="./js/rankViewer.js"></script>
+</body>
+</html>

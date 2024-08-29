@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+#word-control{
+    margin-top: 3px;
+    width: 60vw;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+#word-adder{
+    width: 22%;
+    padding: 0.5rem 0.3rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+#color-choice{
+    width: 22%;
+    padding: 0.5rem 0.3rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+#word-control button{
+    width: 8%;
+    padding: 0.5rem 0.3rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#data-select{
+    width: 18%;
+    padding: 0.5rem 0.3rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+    order: -1;
+}
+
+.viz-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+}
+
+#word-box{
+    margin-left: 1rem;
+    width: 14vw;
+    height: 87vh;
+    overflow-y: scroll;
+    display: block;
+    margin-top: 1rem;
+    border: 1.7px solid #626262;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+#word-box h4{
+    width: 13.8vw;
+    height: 3rem;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgb(136, 203, 205);
+    border-bottom: 1.7px solid #626262;
+    position: fixed;
+    align-items: center;
+}
+
+#word-container{
+    margin-top: 3.5rem;
+}
+
+.word{
+    width: fit-content;
+    margin: 0.6rem 0.4rem;
+    padding: 0.3rem 0.2rem;
+    border: 0.2rem solid;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.word button{
+    padding: 0.2rem 0.1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(127, 122, 122);
+}
+
+#topic-word-view{
+    width: 47.5vw;
+    height: 87vh;
+    margin-top: 1rem;
+    border: 1.7px solid #626262;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+#topic-word-view h4{
+    width: 47.25vw;
+    height: 3rem;
+    text-align: center;
+    padding: 1rem 0;
+    background-color:rgb(136, 203, 205);
+    border-bottom: 1.7px solid #626262;
+    position: fixed;
+    align-items: center;
+}
+
+#topic-word-view svg{
+    margin-right: 1rem;
+    margin-top: 3rem;
+}
+
+#word-topic-view{
+    width: 35vw;
+    margin-right: 1rem;
+    height: 87vh;
+    margin-top: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1.7px solid #626262;
+    border-radius: 2px;
+    box-sizing: border-box;
+    
+}
+
+
+#word-topic-view svg{
+    margin-right: 1rem;
+    margin-top: 3rem;
+}
+
+
+#topic-head{
+    width: 34.8vw;
+    height: 3rem;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgb(136, 203, 205);
+    border-bottom: 1.7px solid #626262;
+    position: fixed;
+    align-items: center;
+}
